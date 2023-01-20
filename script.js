@@ -98,10 +98,6 @@ function render() {
         $('.freaky-fungus.walk').removeClass('walk').addClass('dead');
     }
 
-    if (fungusHP <= 50){
-        $('#hp-meter').setInterval(1000);
-    }
-
     if (myAP <= 0){
         $('.freaky-fungus.walk').removeClass('walk').addClass('jump');
         $('.attack-btn').prop('disabled', true);
