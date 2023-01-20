@@ -9,7 +9,7 @@ let fungusHP = 100;
 let myAP = 100;
 
 function onReady() {
-    
+
     // Make sure you check the index.html file! 
     // There are lots of buttons and things ready for you to hook into here!
     $('.attack-btn.arcane-sceptre').on('click', arcaneAttack);
@@ -18,7 +18,7 @@ function onReady() {
     $('.attack-btn.star-fire').on('click', starFireAttack);
 
     setInterval(hpRegeneration, 1000);
-    
+
     // 🧠 Remember
     // - Handle events that ->
     // - Updates state which is ->
@@ -28,11 +28,11 @@ function onReady() {
 function arcaneAttack() {
     fungusHP -= 14;
     myAP -= 12;
-    if (fungusHP < 0){
+    if (fungusHP < 0) {
         fungusHP = 0;
     }
 
-    if (myAP < 0){
+    if (myAP < 0) {
         myAP = 0;
     }
     console.log('this is arcane attack', fungusHP, myAP);
@@ -43,11 +43,11 @@ function arcaneAttack() {
 function entangleAttack() {
     fungusHP -= 9;
     myAP -= 23;
-    if (fungusHP < 0){
+    if (fungusHP < 0) {
         fungusHP = 0;
     }
 
-    if (myAP < 0){
+    if (myAP < 0) {
         myAP = 0;
     }
 
@@ -59,11 +59,11 @@ function entangleAttack() {
 function dragonBladeAttack() {
     fungusHP -= 47;
     myAP -= 38;
-    if (fungusHP < 0){
+    if (fungusHP < 0) {
         fungusHP = 0;
     }
 
-    if (myAP < 0){
+    if (myAP < 0) {
         myAP = 0;
     }
     console.log('this is dragon blade attack', fungusHP, myAP);
@@ -74,15 +74,14 @@ function dragonBladeAttack() {
 function starFireAttack() {
     fungusHP -= 25;
     myAP -= 33;
-    if (fungusHP < 0){
+    if (fungusHP < 0) {
         fungusHP = 0;
     }
 
-    if (myAP < 0){
+    if (myAP < 0) {
         myAP = 0;
     }
     console.log('this is star fire attack', fungusHP, myAP);
-
 
     render();
 }
@@ -94,15 +93,14 @@ function render() {
     $('#hp-meter').val(fungusHP);
     $('#ap-meter').val(myAP);
 
-    if (fungusHP <= 0){
+    if (fungusHP <= 0) {
         $('.freaky-fungus.walk').removeClass('walk').addClass('dead');
     }
 
-    if (myAP <= 0){
+    if (myAP <= 0) {
         $('.freaky-fungus.walk').removeClass('walk').addClass('jump');
         $('.attack-btn').prop('disabled', true);
-    }  
-    
+    }
 }
 
 function hpRegeneration() {
