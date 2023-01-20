@@ -7,7 +7,7 @@ $(document).ready(onReady);
 
 let fungusHP = 100;
 let myAP = 100;
-let mushieAnimation = 'walk';
+
 
 function onReady() {
     
@@ -49,6 +49,7 @@ function entangleAttack() {
     if (myAP < 0){
         myAP = 0;
     }
+
     console.log('this is entangle attack', fungusHP, myAP);
 
     render();
@@ -92,13 +93,10 @@ function render() {
     $('#ap-meter').val(myAP);
 
     if (fungusHP <= 0){
-        let mushieAnimation = 'dead';
-        $('.freaky-fungus walk').attr('class', mushieAnimation);
+        $('.freaky-fungus.walk').removeClass('walk').addClass('dead');
     }
-    console.log(mushieAnimation);
-
-
-
-    
-
+    if (myAP <= 0){
+        $('.freaky-fungus.walk').removeClass('walk').addClass('jump');
+        $('.attack-btn').prop('disabled', true);
+    }   
 }
