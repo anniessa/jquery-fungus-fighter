@@ -8,7 +8,6 @@ $(document).ready(onReady);
 let fungusHP = 100;
 let myAP = 100;
 
-
 function onReady() {
     
     // Make sure you check the index.html file! 
@@ -17,6 +16,8 @@ function onReady() {
     $('.attack-btn.entangle').on('click', entangleAttack);
     $('.attack-btn.dragon-blade').on('click', dragonBladeAttack);
     $('.attack-btn.star-fire').on('click', starFireAttack);
+
+    setInterval(hpRegeneration, 1000);
     
     // 🧠 Remember
     // - Handle events that ->
@@ -82,6 +83,7 @@ function starFireAttack() {
     }
     console.log('this is star fire attack', fungusHP, myAP);
 
+
     render();
 }
 
@@ -95,8 +97,26 @@ function render() {
     if (fungusHP <= 0){
         $('.freaky-fungus.walk').removeClass('walk').addClass('dead');
     }
+
+    if (fungusHP <= 50){
+        $('#hp-meter').setInterval(1000);
+    }
+
     if (myAP <= 0){
         $('.freaky-fungus.walk').removeClass('walk').addClass('jump');
         $('.attack-btn').prop('disabled', true);
-    }   
+    }  
+    
 }
+
+function hpRegeneration() {
+    if (fungusHP < 50) {
+        fungusHP++;
+    }
+    render();
+}
+
+
+
+
+
